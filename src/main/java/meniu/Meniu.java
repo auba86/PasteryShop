@@ -51,14 +51,17 @@ public class Meniu extends Pastery {
                 case 3:
                     warehouseService.displayProductList(allProductsList);
                     System.out.println("Which product quantity would you like to change? Enter product name: ");
-                    String tempProductName = scanner.next();
                     scanner.nextLine();
+                    String tempProductName = scanner.nextLine();
                     System.out.println("Update product quantity: ");
                     int quantityValue = scanner.nextInt();
                     warehouseService.updateProductList(allProductsList, tempProductName, quantityValue);
                     continue;
                 case 4:
-                    //deleteAnItem();
+                    System.out.println("Which product would you like to delete?");
+                    scanner.nextLine();
+                    String tempProductName2 = scanner.nextLine();
+                    warehouseService.deleteAnItem(allProductsList, tempProductName2);
                     continue;
                 case 5:
                     break;
@@ -72,8 +75,8 @@ public class Meniu extends Pastery {
 
     private void addNewCupcake(Scanner scanner) {
         System.out.println("Enter product name: ");
-        String tempProductName = scanner.next();
         scanner.nextLine();
+        String tempProductName = scanner.nextLine();
         System.out.println("Product quantity: ");
         int tempProductQuantity = scanner.nextInt();
         System.out.println("Is vegan? Yes - 1, No - 2?");
@@ -89,8 +92,8 @@ public class Meniu extends Pastery {
 
     private void addNewCake(Scanner scanner) {
         System.out.println("Enter product name: ");
-        String tempProductName = scanner.next();
         scanner.nextLine();
+        String tempProductName = scanner.nextLine();
         System.out.println("Product quantity: ");
         int tempProductQuantity = scanner.nextInt();
         System.out.println("Is vegan? Yes - 1, No - 2?");

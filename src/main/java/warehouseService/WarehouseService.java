@@ -17,8 +17,19 @@ public class WarehouseService extends Pastery {
     }
 
     public void updateProductList(List<Pastery> products, String tempProductName, int quantityValue){
-        if(products.contains(tempProductName)) {
-            setQuantity(quantityValue);
+        for (Pastery pastery : products) {
+            if(tempProductName.equals(pastery.getProductName())) {
+                pastery.setQuantity(pastery.getQuantity() + quantityValue);
+            }
+        }
+    }
+
+    public void deleteAnItem(List<Pastery> products, String tempProductName) {
+        for (Pastery pastery : products) {
+            if(tempProductName.equals(pastery.getProductName())) {
+                products.remove(pastery);
+                break;
+            }
         }
     }
 }
